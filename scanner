@@ -1,0 +1,12 @@
+#! /bin/bash
+
+echo -n "Host to scan: "
+read host
+
+for port in {21,22,139,445,1433,3389,5895,8080}; do
+
+        (timeout 0.0 echo >/dev/tcp/$host/$port) > /dev/null 2>&1 &&
+        echo "$host has port $port open" ||
+        echo "$host has port $port closed"
+
+done
