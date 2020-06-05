@@ -1,4 +1,4 @@
-#! bin/bash
+#! /bin/bash
 
 echo -n "Host: " 
 read HOST
